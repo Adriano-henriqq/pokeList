@@ -2,6 +2,7 @@ import { Component } from "react";
 import styles from './Pokemon.module.css'
 import { upperCaseFirstLetter } from "../../utils/upperCaseFirstChar";
 import { getData } from "../../apis/apis";
+import PokemonImage from "../PokemonImages";
 
 class Pokemon extends Component {
     constructor(props) {
@@ -31,7 +32,10 @@ class Pokemon extends Component {
                 {this.state.pokemons.map((pokemon) => (
                     <li onClick={() => this.handleClick(pokemon.name)} className={styles.itemPokemons} key={pokemon.id}>
                         <div className={styles.order}><span> #{pokemon.order} </span> </div>
-                        <img src={pokemon.sprites.front_default} alt={`imagem do ${pokemon.name}`} />
+                        <div className={styles.containerImg}>
+                            <PokemonImage pokemonImg={pokemon.sprites.front_default} pokemonAlt={pokemon.name} />
+                               
+                        </div>
                         <h3> {upperCaseFirstLetter(pokemon.name)}</h3>
                         <div className={styles.containerStats}>
                             <p> EXP {pokemon.base_experience}</p>

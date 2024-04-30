@@ -1,19 +1,24 @@
-
-
 .itemPokemons {
     list-style: none;
     display: flex;
     text-align: center;
     background-color: #fefefe;
     border-radius: 10px;
-    width: 350px;
-    height: 400px;
+    height: auto;
     flex-direction: column;
     animation: fadeIn 1s both;
     transition: 500ms;
     cursor: pointer;
-   
+    position: relative;
+    width: 100%;
 }
+
+.containerImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .itemPokemons:hover {
     padding: .5rem;
     transition: 500ms;
@@ -34,102 +39,147 @@
 }
 
 
-.itemPokemons img{
-    width: 150px;
-    align-self: center;
-    background-color:rgb(228, 241, 241);
-    border-radius: 150px 0px 10px;
-    margin-top: 1rem;
-    padding: 1rem;
-    object-fit: cover;
-}
-.containerStats{
+
+.containerStats {
     display: flex;
     align-items: center;
-    justify-content: space-around ;
+    justify-content: space-around;
 }
 
-.order{
+.order {
     display: flex;
 }
-.order span{
+
+.order span {
     color: #b3b3b3;
     padding: .5rem;
 
 }
 
-.type{
+.type {
     padding: .5rem 1rem;
     border-radius: 20px;
 }
 
-.fire, 
-.poison, .bug, 
-.normal, .water, 
-.grass, .flying,
-.electric, .ground, 
-.fairy, .fighting, 
-.psychic, .rock, 
-.ice, .dark, 
-.ghost, .steel{
+.fire,
+.poison,
+.bug,
+.normal,
+.water,
+.grass,
+.flying,
+.electric,
+.ground,
+.fairy,
+.fighting,
+.psychic,
+.rock,
+.ice,
+.dark,
+.ghost,
+.steel {
     color: rgb(244, 240, 240);
     font-size: 12px;
     font-weight: bold;
-    
+
 }
 
-.fire{
+.fire {
     background-color: rgb(240, 75, 75);
 }
-.poison{
+
+.poison {
     background-color: purple;
 }
-.bug{
+
+.bug {
     background-color: rgb(106, 151, 236);
 }
-.normal{
+
+.normal {
     background-color: rgb(69, 37, 3);
 }
-.water, .ice{
+
+.water,
+.ice {
     background-color: rgb(5, 121, 236);
 }
-.grass{
+
+.grass {
     background-color: green;
 }
-.flying{
+
+.flying {
     background-color: rgb(50, 245, 222);
 }
-.electric{
+
+.electric {
     background-color: rgb(208, 255, 19);
 }
-.ground{
+
+.ground {
     background-color: rgb(174, 166, 126);
 
 }
-.fairy{
+
+.fairy {
     background-color: rgb(253, 120, 206);
 
 }
-.fighting, .steel{
+
+.fighting,
+.steel {
     background-color: rgb(119, 119, 119);
 
 }
-.psychic{
+
+.psychic {
     background-color: rgb(80, 0, 251);
 
 }
-.rock, .dark, .ghost{
+
+.rock,
+.dark,
+.ghost {
     background-color: rgb(52, 52, 52);
 }
 
 @media screen and (max-width: 768px) {
-    .itemPokemons{
-        width: 250px;
+    .itemPokemons {
+        width: 100%;
         height: 300px;
-        
+
     }
 
-    .itemPokemons img{
+    .itemPokemons img {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .itemPokemons {
+        width: auto;
+        height: 300px;
+        padding: 3rem;
+        gap: 10px;
+
+    }
+
+    .itemPokemons img {
+        width: 100px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .itemPokemons {
+        width: auto;
+        height: auto;
+        padding: 2rem;
+        gap: 10px;
+        justify-content: space-around;
+
+    }
+
+    .itemPokemons img {
         width: 100px;
     }
 }

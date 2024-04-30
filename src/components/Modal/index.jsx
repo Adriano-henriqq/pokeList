@@ -2,6 +2,7 @@ import { Component } from "react";
 import styles from './Modal.module.css'
 import { getData } from "../../apis/apis";
 import { upperCaseFirstLetter } from "../../utils/upperCaseFirstChar";
+import PokemonImage from "../PokemonImages";
 
 class Modal extends Component {
     constructor(props) {
@@ -27,18 +28,21 @@ class Modal extends Component {
                 <div className={styles.modal}>
                   <div className={styles.statsContainer}>
                  <div className={styles.statsInfoContainer}>     
-                  <img className={styles.img} src={this.state.pokemon.sprites.front_default} alt="" />
+                 <PokemonImage pokemonImg={this.state.pokemon.sprites.front_default} pokemonAlt={this.state.pokemon.name}/>
                   <h3>{upperCaseFirstLetter(this.state.pokemon.name)}</h3>
                   </div> 
                   <div className={styles.stats}>
+                  <div>  
                   <h4>Stats</h4>
+                  </div>
+                  <div className={styles.orderStats}>  
                     {this.state.pokemonStats.map((item,index)=> (
                         <div key={index} className={styles.statsInfo}>    
                         <p className={styles.statsName}>{upperCaseFirstLetter(item.stat.name.replace(/[-]/, ' '))}</p>
-                        <span style={{padding: `0 ${item.base_stat}px`}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
-                        
+                        <span style={{padding: `0 ${item.base_stat}px  `}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
                         </div>
                     ))}
+                    </div>
                 </div>
                 </div>
                     </div>
