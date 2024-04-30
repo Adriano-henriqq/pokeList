@@ -144,41 +144,32 @@
     background-color: rgb(52, 52, 52);
 }
 
-@media screen and (max-width: 768px) {
-    .itemPokemons {
-        width: 100%;
-        height: 300px;
 
-    }
 
-    .itemPokemons img {
-        width: 100px;
-    }
-}
-
-@media screen and (max-width: 478px) {
-    .itemPokemons {
-        width: auto;
-        height: 300px;
-        padding: 3rem;
-        gap: 10px;
-
-    }
-
-    .itemPokemons img {
-        width: 100px;
-    }
-}
 @media screen and (max-width: 768px) {
     .itemPokemons {
         width: auto;
         height: auto;
-        padding: 2rem;
+        padding: 4rem;
         gap: 10px;
         justify-content: space-around;
 
     }
+    
 
+    .itemPokemons img {
+        width: 100px;
+    }
+}
+@media screen and (max-width: 478px) {
+    .itemPokemons {
+        width: auto;
+        height: auto;
+        padding: .5rem 4rem;
+        gap: 10px;
+
+    }
+   
     .itemPokemons img {
         width: 100px;
     }

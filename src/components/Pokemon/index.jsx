@@ -38,7 +38,7 @@ class Pokemon extends Component {
                         </div>
                         <h3> {upperCaseFirstLetter(pokemon.name)}</h3>
                         <div className={styles.containerStats}>
-                            <p> EXP {pokemon.base_experience}</p>
+                            
                             {pokemon.types.map((item, index) => (
 
                                 <p key={index} className={`${styles.type} ${styles[item.type.name]}`}>{upperCaseFirstLetter(item.type.name)}</p>

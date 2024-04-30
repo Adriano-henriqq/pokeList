@@ -15,7 +15,7 @@
     justify-content: center;
     row-gap: 22px;
     width: 100%;
-    padding: 0;
+    padding: .5rem;
 
 
 }
@@ -50,5 +50,10 @@
         grid-template-columns: 1fr;
         padding: 0;
         width: auto;
+    }
+
+    .buttonShowMore{
+        width: 200px;
+        padding: 1rem;
     }
 }
