@@ -30,7 +30,7 @@ class Pokemon extends Component {
         return (
             <>
                 {this.state.pokemons.map((pokemon) => (
-                    <li onClick={() => this.handleClick(pokemon.name)} className={styles.itemPokemons} key={pokemon.id}>
+                    <li  className={styles.itemPokemons} key={pokemon.id}>
                         <div className={styles.order}><span> #{pokemon.order} </span> </div>
                         <div className={styles.containerImg}>
                             <PokemonImage pokemonImg={pokemon.sprites.front_default} pokemonAlt={pokemon.name} />
@@ -44,7 +44,9 @@ class Pokemon extends Component {
                                 <p key={index} className={`${styles.type} ${styles[item.type.name]}`}>{upperCaseFirstLetter(item.type.name)}</p>
                             ))}
                         </div>
-                        
+                        <div className={styles.divButton}>    
+                        <button className={styles.buttonShowMore} onClick={() => this.handleClick(pokemon.name)}>Detalhes</button>
+                        </div>
                     </li>
 
                 ))}

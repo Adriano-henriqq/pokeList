@@ -8,7 +8,6 @@
     flex-direction: column;
     animation: fadeIn 1s both;
     transition: 500ms;
-    cursor: pointer;
     position: relative;
     width: 100%;
 }
@@ -19,10 +18,7 @@
     justify-content: center;
 }
 
-.itemPokemons:hover {
-    padding: .5rem;
-    transition: 500ms;
-}
+
 
 .fadeIn {
     animation: fadeIn 3s both;
@@ -144,7 +140,29 @@
     background-color: rgb(52, 52, 52);
 }
 
+.divButton{
+    display: flex;
+    justify-content: center;
+}
+.buttonShowMore{
+    padding: 1rem 1rem;
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
+    border: none;
+    width: 250px;
+    cursor: pointer;
+    transition: 500ms;
+    color: white;
+    margin-bottom: 2rem;
+    
 
+}
+
+.buttonShowMore:hover {
+    width: 280px;
+    transition: 500ms ;
+    background-color: #b3b3b3;
+}
 
 @media screen and (max-width: 768px) {
     .itemPokemons {
