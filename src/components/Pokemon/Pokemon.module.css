@@ -1,0 +1,135 @@
+
+
+.itemPokemons {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    background-color: #fefefe;
+    border-radius: 10px;
+    width: 350px;
+    height: 400px;
+    flex-direction: column;
+    animation: fadeIn 1s both;
+    transition: 500ms;
+    cursor: pointer;
+   
+}
+.itemPokemons:hover {
+    padding: .5rem;
+    transition: 500ms;
+}
+
+.fadeIn {
+    animation: fadeIn 3s both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.itemPokemons img{
+    width: 150px;
+    align-self: center;
+    background-color:rgb(228, 241, 241);
+    border-radius: 150px 0px 10px;
+    margin-top: 1rem;
+    padding: 1rem;
+    object-fit: cover;
+}
+.containerStats{
+    display: flex;
+    align-items: center;
+    justify-content: space-around ;
+}
+
+.order{
+    display: flex;
+}
+.order span{
+    color: #b3b3b3;
+    padding: .5rem;
+
+}
+
+.type{
+    padding: .5rem 1rem;
+    border-radius: 20px;
+}
+
+.fire, 
+.poison, .bug, 
+.normal, .water, 
+.grass, .flying,
+.electric, .ground, 
+.fairy, .fighting, 
+.psychic, .rock, 
+.ice, .dark, 
+.ghost, .steel{
+    color: rgb(244, 240, 240);
+    font-size: 12px;
+    font-weight: bold;
+    
+}
+
+.fire{
+    background-color: rgb(240, 75, 75);
+}
+.poison{
+    background-color: purple;
+}
+.bug{
+    background-color: rgb(106, 151, 236);
+}
+.normal{
+    background-color: rgb(69, 37, 3);
+}
+.water, .ice{
+    background-color: rgb(5, 121, 236);
+}
+.grass{
+    background-color: green;
+}
+.flying{
+    background-color: rgb(50, 245, 222);
+}
+.electric{
+    background-color: rgb(208, 255, 19);
+}
+.ground{
+    background-color: rgb(174, 166, 126);
+
+}
+.fairy{
+    background-color: rgb(253, 120, 206);
+
+}
+.fighting, .steel{
+    background-color: rgb(119, 119, 119);
+
+}
+.psychic{
+    background-color: rgb(80, 0, 251);
+
+}
+.rock, .dark, .ghost{
+    background-color: rgb(52, 52, 52);
+}
+
+@media screen and (max-width: 768px) {
+    .itemPokemons{
+        width: 250px;
+        height: 300px;
+        
+    }
+
+    .itemPokemons img{
+        width: 100px;
+    }
+}

@@ -1,0 +1,106 @@
+.containerModal{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0,0, 0.7);
+    z-index: 1000;
+}
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    width: 750px;
+    height: 500px;
+    border-radius: 10px;
+    animation: fadeIn 1s both;
+    
+    
+}
+
+.statsContainer{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+}
+
+.statsInfoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.img{
+    width: 250px;
+    border-radius: 150px 0px 10px;
+    background-color: rgb(228, 241, 241);
+    padding: 1rem;
+    margin-left: 10px;
+    height: 250px;
+
+   
+}
+
+.statsContainer h4{
+    font-size: 19px;
+    margin: 10px 0 0 0;
+}
+.stats{
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+}
+
+.statsBar{
+    border-radius: 10px;
+    color: white;
+}
+.hp{
+    background-color: red;
+
+}
+
+.attack{
+    background-color: rgb(8, 78, 208);
+
+}
+.defense{
+    background-color: rgb(1, 222, 75);
+}
+
+.special-attack{
+    background-color: aqua;
+
+}
+
+.special-defense{
+    background-color: gray;
+
+}
+
+.speed{
+    background-color: rgb(255, 242, 0);
+}
+
+
+
+.fadeIn {
+    animation: fadeIn 3s both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
