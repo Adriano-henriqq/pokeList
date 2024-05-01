@@ -111,6 +111,7 @@
     .modal{
         width: 100%;
         top: 50%;
+
     }
 
     .statsContainer{
@@ -151,6 +152,7 @@
         align-items: center;
         justify-content: center;
         gap: 0;
+        height: auto;
         
     }
 

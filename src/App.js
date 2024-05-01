@@ -32,9 +32,7 @@ class App extends Component {
       return { pokemonFiltrado: prevState.pokemonFiltrado = true }
     })
 
-    if(this.state.pokemonFiltrado){
-    this.setState({ pokemonFiltrado: false });
-    }
+    
   }
 
 

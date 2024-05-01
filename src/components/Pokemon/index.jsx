@@ -29,7 +29,7 @@ class Pokemon extends Component {
 
     render() {
 
-        if(this.state.pokemons.length ===0){
+        if(this.state.pokemons.length === 0){
             return (
                 <LoadIconGif/>
             )

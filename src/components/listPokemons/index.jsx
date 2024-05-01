@@ -12,10 +12,12 @@ class ListPokemons extends Component {
     }
     render() {
 
-        if (this.props.filtra) {
+        if (this.props.pokemonFiltrado.length > 0) {    
             return (
                 <div className={styles.container}>
+                    <ul> 
                     <Pokemon pokemonFiltrado={this.props.pokemonFiltrado} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonFiltrado}`} />
+                    </ul>
                 </div>
             )
         }
