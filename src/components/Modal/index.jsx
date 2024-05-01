@@ -40,8 +40,10 @@ class Modal extends Component {
                     {this.state.pokemonStats.map((item,index)=> (
                         <div key={index} className={styles.statsInfo}>    
                         <p className={styles.statsName}>{upperCaseFirstLetter(item.stat.name.replace(/[-]/, ' '))}</p>
-                        <span style={{padding: `0 ${item.base_stat}px  `}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
+                       <div className={styles.bar}> 
+                        <span style={{padding: `0 ${item.base_stat}px 0 0  `}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
                         </div>
+                    </div>
                     ))}
                     </div>
                 </div>
