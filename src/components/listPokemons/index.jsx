@@ -1,40 +1,38 @@
 import { Component } from "react";
 import styles from './ListPokemons.module.css'
 import Pokemon from "../Pokemon";
-import { getData } from "../../apis/apis";
 
 class ListPokemons extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-         pagination: {},     
-         urls: []
-    } 
-    
-    
-    }
-  
-   
-    
-    render() { 
-        if(this.props.urls.length === 0){
-            return <div>Loading...</div>
+            pagination: {},
+            urls: []
         }
+    }
+    render() {
 
+        if (this.props.filtra) {
+            return (
+                <div className={styles.container}>
+                    <Pokemon pokemonFiltrado={this.props.pokemonFiltrado} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonFiltrado}`} />
+                </div>
+            )
+        }
         return (
-           <div className={styles.container}>
-            
-            <hr />
-           <ul> 
-            {this.props.urls.map((url,index)=> (
-               <Pokemon  onClick={this.props.onClick} key={index} url={url}/>
-                
-            ))}
-           </ul> 
-           <button onClick={this.props.morePokemons} className={styles.buttonShowMore}> Mostrar Mais </button>
-           </div> 
-     );
+            <div className={styles.container}>
+
+                <hr />
+                <ul>
+                    {this.props.urls.map((url, index) => (
+                        <Pokemon pokemonFiltrado={this.props.pokemonFiltrado} onClick={this.props.onClick} key={index} url={url} />
+
+                    ))}
+                </ul>
+                <button onClick={this.props.morePokemons} className={styles.buttonShowMore}> Mostrar Mais </button>
+            </div>
+        );
     }
 }
- 
+
 export default ListPokemons;

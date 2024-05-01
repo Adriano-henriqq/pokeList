@@ -3,6 +3,7 @@ import styles from './Pokemon.module.css'
 import { upperCaseFirstLetter } from "../../utils/upperCaseFirstChar";
 import { getData } from "../../apis/apis";
 import PokemonImage from "../PokemonImages";
+import LoadIconGif from "../LoadingDataIcon";
 
 class Pokemon extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Pokemon extends Component {
             this.setState({ pokemons: [response] })
         })
     }
-
+    
     handleClick = (pokemon) => {
         const pokemonClicado = pokemon
         this.setState({ pokemonClicado: pokemonClicado })
@@ -27,13 +28,19 @@ class Pokemon extends Component {
     }
 
     render() {
+
+        if(this.state.pokemons.length ===0){
+            return (
+                <LoadIconGif/>
+            )
+        }
         return (
             <>
                 {this.state.pokemons.map((pokemon) => (
                     <li  className={styles.itemPokemons} key={pokemon.id}>
                         <div className={styles.order}><span> #{pokemon.order} </span> </div>
                         <div className={styles.containerImg}>
-                            <PokemonImage pokemonImg={pokemon.sprites.front_default} pokemonAlt={pokemon.name} />
+                            <PokemonImage pokemonImg={pokemon.sprites.other.dream_world.front_default} pokemonAlt={pokemon.name} />
                                
                         </div>
                         <h3> {upperCaseFirstLetter(pokemon.name)}</h3>

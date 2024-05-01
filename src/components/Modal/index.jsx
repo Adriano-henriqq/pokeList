@@ -3,6 +3,7 @@ import styles from './Modal.module.css'
 import { getData } from "../../apis/apis";
 import { upperCaseFirstLetter } from "../../utils/upperCaseFirstChar";
 import PokemonImage from "../PokemonImages";
+import LoadIconGif from "../LoadingDataIcon";
 
 class Modal extends Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class Modal extends Component {
                 <div className={styles.modal}>
                   <div className={styles.statsContainer}>
                  <div className={styles.statsInfoContainer}>     
-                 <PokemonImage pokemonImg={this.state.pokemon.sprites.front_default} pokemonAlt={this.state.pokemon.name}/>
+                 <PokemonImage pokemonImg={this.state.pokemon.sprites.other.dream_world.front_default} pokemonAlt={this.state.pokemon.name}/>
                   <h3>{upperCaseFirstLetter(this.state.pokemon.name)}</h3>
                   </div> 
                   <div className={styles.stats}>
@@ -50,7 +51,7 @@ class Modal extends Component {
 
         );
     }else{
-        return null
+        <LoadIconGif/>
     }
 
     }

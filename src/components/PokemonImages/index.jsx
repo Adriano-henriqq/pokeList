@@ -2,9 +2,6 @@ import { Component } from 'react';
 import styles from './PokemonImages.module.css'
 
 class PokemonImage extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() { 
         return ( 

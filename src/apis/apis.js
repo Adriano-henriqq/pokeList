@@ -1,6 +1,7 @@
+import axios from "axios";
+
 export function getData(url,callback){
-    fetch(url)
-    .then((response => response.json()))
-    .then(response => callback(null,response))
+    axios.get(url)
+    .then((response =>  callback(null,response.data)))
     .catch((error)=> callback(error,null))
 }

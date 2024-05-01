@@ -45,6 +45,13 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 650px) {
+    .container ul {
+        grid-template-columns: 1fr ;
+        padding: 0;
+        width: 100%;
+    }
+}
 @media screen and (max-width: 468px) {
     .container ul {
         grid-template-columns: 1fr;
