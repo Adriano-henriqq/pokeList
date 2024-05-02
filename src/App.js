@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Modal from "./components/Modal";
 import { getData } from "./apis/apis";
 import SearchBar from "./components/Search";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+
 
 
 class App extends Component {
@@ -12,8 +14,8 @@ class App extends Component {
     urls: [],
     pagination: {},
     pokemonClicado: '',
-    pokemonDigitado: '',
-    pokemonFiltrado: false,
+    pokemonDigitado: null,
+    filtrar: false,
   }
 
   showModal = (nome) => {
@@ -25,14 +27,8 @@ class App extends Component {
   }
 
   searchPokemon = (nomePokemon) => {
-    this.setState((prevState) => {
-      return { pokemonDigitado: prevState.pokemonDigitado = nomePokemon }
-    })
-    this.setState((prevState) => {
-      return { pokemonFiltrado: prevState.pokemonFiltrado = true }
-    })
+    this.setState({ pokemonDigitado: nomePokemon.toLowerCase() })
 
-    
   }
 
 
@@ -48,12 +44,11 @@ class App extends Component {
       this.setState({ urls: data })
 
 
+
     })
   }
 
-  
 
-  
 
   morePokemons() {
 
@@ -70,15 +65,17 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
         <header>
           <Header />
         </header>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          {this.state.pokemonDigitado && <FaLongArrowAltLeft  cursor={'pointer'}  onClick={()=>this.setState({pokemonDigitado:null})} size={30}/>}
           <SearchBar onChange={this.searchPokemon} />
         </div>
-        <ListPokemons filtra={this.state.pokemonFiltrado} pokemonFiltrado={this.state.pokemonDigitado} morePokemons={this.morePokemons.bind(this)} urls={this.state.urls} onClick={this.showModal} />
+        <ListPokemons pokemonDigitado={this.state.pokemonDigitado} morePokemons={this.morePokemons.bind(this)} urls={this.state.urls} onClick={this.showModal} />
         {this.state.showModal && <Modal nome={this.state.pokemonClicado} handleModal={this.showModal.bind(this)} showModal={this.state.showModal} />}
       </div>
     )

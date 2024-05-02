@@ -8,57 +8,71 @@ import LoadIconGif from "../LoadingDataIcon";
 class Pokemon extends Component {
     constructor(props) {
         super(props);
-        this.state = { pokemons: [],
-                       pokemonClicado: null 
-        
+        this.state = {
+            pokemons: [],
+            pokemonClicado: null,
+            error: ''
+
         }
     }
 
     componentDidMount() {
-        getData(this.props.url,(error,response)=>{
-            if(error) return console.log(error)
+        getData(this.props.url, (error, response) => {
+            if (error) return this.setState(prevState => {return {error: prevState.error = error.response.status}});
+            console.log(this.state.error)
             this.setState({ pokemons: [response] })
         })
     }
-    
+    componentDidUpdate(prevProps) {
+        if (this.props.url !== prevProps.url) {
+            getData(this.props.url, (error, response) => {
+                if (error) return this.setState(prevState => {return {error: prevState.error = error.response.status}});
+                this.setState({error: false})
+                this.setState({ pokemons: [response]})
+            })
+        }
+    }
     handleClick = (pokemon) => {
         const pokemonClicado = pokemon
-        this.setState({ pokemonClicado: pokemonClicado })
+        this.setState({ pokemonClicado: pokemonClicado})
         this.props.onClick(pokemonClicado)
     }
 
     render() {
-
-        if(this.state.pokemons.length === 0){
+        
+        if (this.state.error === 404) {
+           
             return (
-                <LoadIconGif/>
+                <div>Pokemon não encontrado</div>
             )
+            
+           
         }
         return (
             <>
                 {this.state.pokemons.map((pokemon) => (
-                    <li  className={styles.itemPokemons} key={pokemon.id}>
-                        <div className={styles.order}><span> #{pokemon.order} </span> </div>
+                    <li className={styles.itemPokemons} key={pokemon.id}>
+                        <div className={styles.order}><span> #{pokemon.order} </span></div>
                         <div className={styles.containerImg}>
                             <PokemonImage pokemonImg={pokemon.sprites.other.dream_world.front_default} pokemonAlt={pokemon.name} />
-                               
+
                         </div>
                         <h3> {upperCaseFirstLetter(pokemon.name)}</h3>
                         <div className={styles.containerStats}>
-                            
+
                             {pokemon.types.map((item, index) => (
 
                                 <p key={index} className={`${styles.type} ${styles[item.type.name]}`}>{upperCaseFirstLetter(item.type.name)}</p>
                             ))}
                         </div>
-                        <div className={styles.divButton}>    
-                        <button className={styles.buttonShowMore} onClick={() => this.handleClick(pokemon.name)}>Detalhes</button>
+                        <div className={styles.divButton}>
+                            <button className={styles.buttonShowMore} onClick={() => this.handleClick(pokemon.name)}>Detalhes</button>
                         </div>
                     </li>
 
                 ))}
             </>
-            
+
         );
     }
 }

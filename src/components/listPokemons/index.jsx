@@ -7,16 +7,24 @@ class ListPokemons extends Component {
         super(props)
         this.state = {
             pagination: {},
-            urls: []
+            urls: [],
+            pokemonDigitado: null
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.pokemonDigitado !== prevProps.pokemonDigitado) {
+            this.setState({ pokemonDigitado: this.props.pokemonDigitado });
         }
     }
     render() {
 
-        if (this.props.pokemonFiltrado.length > 0) {    
+        if (this.state.pokemonDigitado !== null) {
+            
             return (
                 <div className={styles.container}>
-                    <ul> 
-                    <Pokemon pokemonFiltrado={this.props.pokemonFiltrado} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonFiltrado}`} />
+                    <ul>
+                        <Pokemon onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.state.pokemonDigitado}`} />
                     </ul>
                 </div>
             )
@@ -27,7 +35,7 @@ class ListPokemons extends Component {
                 <hr />
                 <ul>
                     {this.props.urls.map((url, index) => (
-                        <Pokemon pokemonFiltrado={this.props.pokemonFiltrado} onClick={this.props.onClick} key={index} url={url} />
+                        <Pokemon  onClick={this.props.onClick} key={index} url={url} />
 
                     ))}
                 </ul>
