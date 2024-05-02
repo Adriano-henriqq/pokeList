@@ -14,7 +14,6 @@ class SearchBar extends Component {
     handleClick(){
        
         
-        console.log(this.state.pokemonName)
         if(this.state.pokemonName.length > 0){
             this.props.onChange(this.state.pokemonName)
             this.setState({pokemonName: ''})

@@ -18,35 +18,45 @@ class Pokemon extends Component {
 
     componentDidMount() {
         getData(this.props.url, (error, response) => {
-            if (error) return this.setState(prevState => {return {error: prevState.error = error.response.status}});
-            console.log(this.state.error)
+            if (error){ 
+                return this.setState(prevState => { return { error: prevState.error = error.response.status } }, ()=> {
+                     this.props.onError(this.state.error)
+                })
+            };
+            this.setState({ error: false })
+            ;
             this.setState({ pokemons: [response] })
         })
     }
     componentDidUpdate(prevProps) {
         if (this.props.url !== prevProps.url) {
             getData(this.props.url, (error, response) => {
-                if (error) return this.setState(prevState => {return {error: prevState.error = error.response.status}});
-                this.setState({error: false})
-                this.setState({ pokemons: [response]})
+                if (error) {
+                    this.props.onError(error.response.status)
+                    return this.setState(prevState => { 
+                        return { error: prevState.error = error.response.status } });
+                    }
+                    this.props.onError(this.state.error);
+                    this.setState({ error: false })
+                this.setState({ pokemons: [response] })
             })
         }
     }
     handleClick = (pokemon) => {
         const pokemonClicado = pokemon
-        this.setState({ pokemonClicado: pokemonClicado})
+        this.setState({ pokemonClicado: pokemonClicado })
         this.props.onClick(pokemonClicado)
     }
 
     render() {
-        
-        if (this.state.error === 404) {
-           
+
+        if (this.state.pokemons.length === 0 ) {
+
             return (
-                <div>Pokemon não encontrado</div>
+                <LoadIconGif/>
             )
-            
-           
+
+
         }
         return (
             <>
