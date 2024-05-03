@@ -4,7 +4,7 @@
 
 <p>Api usada: PokeApi</p>
 
-<img width="500" height="300" src="./prints/pokeList .png" >
+<img width="500" height="300" src="./prints/pokeList.png" >
  
 <h1> Tecnologias utilizadas:</h1>
 <br>
