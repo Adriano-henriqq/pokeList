@@ -12,6 +12,7 @@ class ListPokemons extends Component {
             pokemonDigitado: null,
             erro: false
         }
+        this.getError = this.getError.bind(this)
     }
 
     componentDidUpdate(prevProps) {
@@ -36,7 +37,7 @@ class ListPokemons extends Component {
                 <div className={styles.container}>
                     {this.state.erro !== 404 ?
                         <ul className={this.state.pokemonDigitado !== null ? styles.listaPokemonFiltrada : styles.listaPokemon}>
-                            <Pokemon onError={this.getError.bind(this)} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.state.pokemonDigitado}`} />
+                            <Pokemon onError={this.getError} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.state.pokemonDigitado}`} />
                         </ul>
 
                         :<ComponentError />}

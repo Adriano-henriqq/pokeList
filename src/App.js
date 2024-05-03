@@ -10,28 +10,33 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 
 
 class App extends Component {
-  state = {
-    showModal: false,
-    urls: [],
-    pagination: {},
-    pokemonClicado: '',
-    pokemonDigitado: null,
-    filtrar: false,
+  constructor(){
+    super()
+    this.state = {
+      showModal: false,
+      urls: [],
+      pagination: {},
+      pokemonClicado: '',
+      pokemonDigitado: null,
+      filtrar: false,
+    }
+    this.showModal = this.showModal.bind(this);
+    this.searchPokemon = this.searchPokemon.bind(this);
+    this.morePokemons = this.morePokemons.bind(this);
   }
 
-  showModal = (nome) => {
+  showModal(nome) {
     this.setState((statePrev) => {
-      return { showModal: !statePrev.showModal ? statePrev.showModal = true : false }
+      return { 
+        showModal: !statePrev.showModal, 
+        pokemonClicado: nome 
+       }
     })
-    this.setState({ pokemonClicado: nome })
-
   }
 
-  searchPokemon = (nomePokemon) => {
+  searchPokemon(nomePokemon){
     this.setState({ pokemonDigitado: nomePokemon.toLowerCase() })
-
   }
-
 
   componentDidMount() {
     getData('https://pokeapi.co/api/v2/pokemon', (error, response) => {
@@ -44,15 +49,9 @@ class App extends Component {
 
       this.setState({ urls: data })
 
-
-
     })
   }
-
-
-
   morePokemons() {
-
     getData(this.state.pagination, (error, response) => {
       if (error) {
         console.log(error)
@@ -76,8 +75,8 @@ class App extends Component {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           {this.state.pokemonDigitado && <FaLongArrowAltLeft  cursor={'pointer'}  onClick={()=>this.setState({pokemonDigitado:null})} size={30}/>}
         </div>
-        <ListPokemons pokemonDigitado={this.state.pokemonDigitado} morePokemons={this.morePokemons.bind(this)} urls={this.state.urls} onClick={this.showModal} />
-        {this.state.showModal && <Modal nome={this.state.pokemonClicado} handleModal={this.showModal.bind(this)} showModal={this.state.showModal} />}
+        <ListPokemons pokemonDigitado={this.state.pokemonDigitado} morePokemons={this.morePokemons} urls={this.state.urls} onClick={this.showModal} />
+        {this.state.showModal && <Modal nome={this.state.pokemonClicado} handleModal={this.showModal} showModal={this.state.showModal} />}
       </div>
     )
   }
