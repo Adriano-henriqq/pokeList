@@ -35,11 +35,11 @@ class ListPokemons extends Component {
             return (
                 <div className={styles.container}>
                     {this.state.erro !== 404 ?
-                        <ul>
+                        <ul className={this.state.pokemonDigitado !== null ? styles.listaPokemonFiltrada : styles.listaPokemon}>
                             <Pokemon onError={this.getError.bind(this)} onClick={this.props.onClick} url={`https://pokeapi.co/api/v2/pokemon/${this.state.pokemonDigitado}`} />
                         </ul>
 
-                        : <ComponentError />}
+                        :<ComponentError />}
                 </div>
             )
 
@@ -48,8 +48,7 @@ class ListPokemons extends Component {
         return (
             <div className={styles.container}>
 
-                <hr />
-                <ul>
+                <ul className={styles.listaPokemon}>
                     {this.props.urls.map((url, index) => (
                         <Pokemon onClick={this.props.onClick} key={index} url={url} />
 

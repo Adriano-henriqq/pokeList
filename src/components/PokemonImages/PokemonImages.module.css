@@ -2,14 +2,14 @@
     align-self: center;
     margin-top: 1rem;
     padding: 1rem;
-    width: 100px;
+    width: 130px;
     z-index: 1;
     transition: 300ms ease-out;
 
 }
 
  .imgBackground img:hover{
-   width: 110px;
+   width: 140px;
     transition: 300ms ease-out;
 }
 

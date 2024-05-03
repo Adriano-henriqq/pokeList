@@ -1,13 +1,17 @@
 .header{
     display: flex;
     justify-content: space-around;
+    margin-top: 1rem;
+    align-items: center;
 }
 
 .img{
-    width: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 .header h3{
-    font-size: 24px;
-    color: rgb(53, 53, 53);
+    font-size: 34px;
+    color: rgb(69, 69, 69);
+    letter-spacing: 1px;
 }

@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import './app.css'
 import ListPokemons from "./components/listPokemons";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
@@ -67,13 +68,13 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <div className="jersey-15-regular ">
         <header>
-          <Header />
+          <Header/>
+          <SearchBar onChange={this.searchPokemon} />
         </header>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           {this.state.pokemonDigitado && <FaLongArrowAltLeft  cursor={'pointer'}  onClick={()=>this.setState({pokemonDigitado:null})} size={30}/>}
-          <SearchBar onChange={this.searchPokemon} />
         </div>
         <ListPokemons pokemonDigitado={this.state.pokemonDigitado} morePokemons={this.morePokemons.bind(this)} urls={this.state.urls} onClick={this.showModal} />
         {this.state.showModal && <Modal nome={this.state.pokemonClicado} handleModal={this.showModal.bind(this)} showModal={this.state.showModal} />}

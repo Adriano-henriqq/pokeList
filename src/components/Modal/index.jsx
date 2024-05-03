@@ -34,14 +34,14 @@ class Modal extends Component {
                   </div> 
                   <div className={styles.stats}>
                   <div>  
-                  <h4>Stats</h4>
+                  <h4>Base Stats</h4>
                   </div>
                   <div className={styles.orderStats}>  
                     {this.state.pokemonStats.map((item,index)=> (
                         <div key={index} className={styles.statsInfo}>    
                         <p className={styles.statsName}>{upperCaseFirstLetter(item.stat.name.replace(/[-]/, ' '))}</p>
                        <div className={styles.bar}> 
-                        <span style={{padding: `0 ${item.base_stat}px 0 0  `}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
+                        <span style={{padding: `0 ${item.base_stat}% 0 0  `}}className={ `${styles.statsBar} ${styles[item.stat.name]} `}>{item.base_stat}</span>
                         </div>
                     </div>
                     ))}

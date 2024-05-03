@@ -30,8 +30,8 @@ class SearchBar extends Component {
         return ( 
             <div className={styles.containerInput}>
                 <label htmlFor="pokemonInput"></label>
-                <input value={this.state.pokemonName} onChange={this.handleChange.bind(this) } type="text" name="pokemonInput" placeholder="Nome do Pokemon..." />
-                <button onClick={this.handleClick}><CiSearch size={20}/></button>
+                <input value={this.state.pokemonName} onChange={this.handleChange.bind(this) } type="text" name="pokemonInput" placeholder="Ex: Charmander..." />
+                <button onClick={this.handleClick}><CiSearch color="white"  size={20}/></button>
             </div>
          );
     }

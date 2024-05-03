@@ -10,6 +10,7 @@
     transition: 500ms;
     position: relative;
     width: 100%;
+    box-shadow: 1px 1px   3px;
 }
 
 .containerImg{
@@ -91,7 +92,7 @@
 }
 
 .bug {
-    background-color: rgb(106, 151, 236);
+    background-color: rgb(119, 166, 255);
 }
 
 .normal {
@@ -108,7 +109,7 @@
 }
 
 .flying {
-    background-color: rgb(50, 245, 222);
+    background-color: rgb(6, 187, 248);
 }
 
 .electric {
@@ -127,12 +128,12 @@
 
 .fighting,
 .steel {
-    background-color: rgb(119, 119, 119);
+    background-color: rgb(94, 94, 94);
 
 }
 
 .psychic {
-    background-color: rgb(80, 0, 251);
+    background-color: rgb(94, 23, 248);
 
 }
 
@@ -149,13 +150,13 @@
 }
 .buttonShowMore{
     padding: 1rem 1rem;
-    background-color: rgb(129, 129, 129);
+    background-color: rgb(228, 228, 228);
     border-radius: 10px;
     border: none;
     width: 250px;
     cursor: pointer;
     transition: 500ms;
-    color: white;
+    color: rgb(36, 36, 36);
     margin-bottom: 2rem;
     
     

@@ -61,14 +61,14 @@ class Pokemon extends Component {
         return (
             <>
                 {this.state.pokemons.map((pokemon) => (
-                    <li className={styles.itemPokemons} key={pokemon.id}>
+                    <li className={`${styles.itemPokemons}`} key={pokemon.id}>
                         <div className={styles.order}><span> #{pokemon.order} </span></div>
                         <div className={styles.containerImg}>
                             <PokemonImage pokemonImg={pokemon.sprites.other.dream_world.front_default} pokemonAlt={pokemon.name} />
 
                         </div>
                         <h3> {upperCaseFirstLetter(pokemon.name)}</h3>
-                        <div className={styles.containerStats}>
+                        <div className={`${styles.containerStats}`}>
 
                             {pokemon.types.map((item, index) => (
 
